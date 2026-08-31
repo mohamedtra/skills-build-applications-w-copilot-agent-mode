@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { buildApiUrl, normalizeRecords } from '../utils/api';
+import { API_BASE_URL, normalizeRecords } from '../utils/api';
 
 export default function Workouts() {
     const [workouts, setWorkouts] = useState([]);
@@ -11,7 +11,8 @@ export default function Workouts() {
 
         async function loadWorkouts() {
             try {
-                const response = await fetch(buildApiUrl('workouts'));
+                const apiUrl = `${API_BASE_URL}/api/workouts/`;
+                const response = await fetch(apiUrl);
 
                 if (!response.ok) {
                     throw new Error(`Unable to load workouts (${response.status})`);
