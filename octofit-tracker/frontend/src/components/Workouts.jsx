@@ -15,7 +15,7 @@ export default function Workouts() {
                 const response = await fetch(apiUrl);
 
                 if (!response.ok) {
-                    throw new Error(`Unable to load workouts (${response.status})`);
+                    throw new Error(`Unable to load the workouts (${response.status})`);
                 }
 
                 const payload = await response.json();
